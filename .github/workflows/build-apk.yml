@@ -32,4 +32,3 @@ jobs:
         with:
           name: PersianLiveDubber-APK
           path: app/build/outputs/apk/debug/app-debug.apk
-.
