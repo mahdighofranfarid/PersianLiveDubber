@@ -18,6 +18,12 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Configure Gradle Properties (AndroidX)
+        run: |
+          echo "android.useAndroidX=true" >> gradle.properties
+          echo "android.nonTransitiveRClass=true" >> gradle.properties
+          echo "org.gradle.jvmargs=-Xmx4096m -Dfile.encoding=UTF-8" >> gradle.properties
+
       - name: Accept Android Licenses
         run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
@@ -27,7 +33,7 @@ jobs:
           gradle-version: '8.7'
 
       - name: Build Debug APK
-        run: gradle assembleDebug --no-daemon --stacktrace
+        run: gradle assembleDebug --no-daemon
 
       - name: Upload Compiled APK
         uses: actions/upload-artifact@v4
