@@ -38,5 +38,5 @@ jobs:
       - name: Upload Compiled APK
         uses: actions/upload-artifact@v4
         with:
-          name: PersianLiveDubber-v12-Fixed-APK
+          name: PersianLiveDubber-v13-FluentZoom-APK
           path: app/build/outputs/apk/debug/app-debug.apk
